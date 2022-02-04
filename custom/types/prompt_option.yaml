@@ -1,0 +1,42 @@
+synonym:
+  entities:
+    eight:
+      synonyms:
+      - eight
+      - "8"
+    five:
+      synonyms:
+      - five
+      - "5"
+    four:
+      synonyms:
+      - four
+      - "4"
+    nine:
+      synonyms:
+      - nine
+      - "9"
+    one:
+      synonyms:
+      - one
+      - "1"
+    seven:
+      synonyms:
+      - seven
+      - "7"
+    six:
+      synonyms:
+      - six
+      - "6"
+    ten:
+      synonyms:
+      - ten
+      - "10"
+    three:
+      synonyms:
+      - three
+      - "3"
+    two:
+      synonyms:
+      - two
+      - "2"

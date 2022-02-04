@@ -1,0 +1,11 @@
+defaultLocale: en
+localizedSettings:
+  displayName: Beer Assistant
+  pronunciation: Beer Assistant
+  themeCustomization:
+    backgroundColor: '#FFE97A'
+    fontFamily: monospace
+    imageCornerStyle: ANGLED
+    primaryColor: '#101010'
+  voice: female_1
+projectId: sound-berm-336217

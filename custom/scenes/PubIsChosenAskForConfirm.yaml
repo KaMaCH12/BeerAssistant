@@ -1,0 +1,32 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL" && session.params.confirmPub == "Yes"
+  handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: Ok, got it.
+  transitionToScene: ConfirmEvent
+- condition: scene.slots.status == "FINAL" && session.params.confirmPub == "No"
+  transitionToScene: ShowPubsInTheArea
+onEnter:
+  webhookHandler: PubIsChosenAskForConfirm
+slots:
+- commitBehavior:
+    writeSessionParam: confirmPub
+  name: confirmPub
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: Is this the pub you want to go to?
+            suggestions:
+            - title: "Yes"
+            - title: "No"
+  required: true
+  type:
+    name: confirmation

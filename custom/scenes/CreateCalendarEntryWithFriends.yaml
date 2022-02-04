@@ -1,0 +1,30 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL" && session.params.confirmInviteFriends == "Yes"
+  handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: Ok, I've created the event and invited your friends.
+    webhookHandler: CreateEvent
+  transitionToScene: actions.scene.END_CONVERSATION
+- condition: scene.slots.status == "FINAL" && session.params.confirmInviteFriends == "No"
+  transitionToScene: SendInviteToFriends
+onEnter:
+  webhookHandler: ListInvitedFriends
+slots:
+- commitBehavior:
+    writeSessionParam: confirmInviteFriends
+  name: confirmInviteFriends
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: Would you like me to send out the invitations?
+  required: true
+  type:
+    name: confirmation

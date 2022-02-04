@@ -1,0 +1,20 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL" && session.params.confirmEvent == "Yes"
+  transitionToScene: CreateCalendarEntry
+- condition: scene.slots.status == "FINAL" && session.params.confirmEvent == "No"
+  transitionToScene: actions.scene.END_CONVERSATION
+slots:
+- commitBehavior:
+    writeSessionParam: confirmEvent
+  name: confirmEvent
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: Would you like to setup a Google Calendar event?
+  required: true
+  type:
+    name: confirmation

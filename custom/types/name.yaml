@@ -1,0 +1,5 @@
+regularExpression:
+  entities:
+    ([[:alpha:]]|[ąęśżźłó])+:
+      regularExpressions:
+      - ([[:alpha:]]|[ąęśżźłó])+

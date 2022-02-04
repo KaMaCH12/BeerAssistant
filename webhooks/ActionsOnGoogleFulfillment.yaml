@@ -1,0 +1,8 @@
+handlers:
+- name: ShowPubsInTheArea
+- name: PubIsChosenAskForConfirm
+- name: CreateEvent
+- name: SearchFriends
+- name: ListInvitedFriends
+inlineCloudFunction:
+  executeFunction: ActionsOnGoogleFulfillment

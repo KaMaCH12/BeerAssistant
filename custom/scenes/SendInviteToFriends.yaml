@@ -1,0 +1,21 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL"
+  handler:
+    webhookHandler: SearchFriends
+  transitionToScene: CreateCalendarEntryWithFriends
+slots:
+- commitBehavior:
+    writeSessionParam: attendees
+  name: attendees
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: Who would you like to invite?
+  required: true
+  type:
+    list: true
+    name: name

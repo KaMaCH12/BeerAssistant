@@ -1,0 +1,19 @@
+conditionalEvents:
+- condition: scene.slots.status == 'FINAL'
+  transitionToScene: PubIsChosenAskForConfirm
+slots:
+- commitBehavior:
+    writeSessionParam: promptChoice
+  name: promptChoice
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: These are the pubs I've found near your area. Where would you like to go? Choose by saying appropiate number 1, 2 etc.
+      webhookHandler: ShowPubsInTheArea
+  required: true
+  type:
+    name: prompt_option

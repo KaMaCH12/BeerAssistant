@@ -1,0 +1,39 @@
+parameters:
+- name: p
+  type:
+    name: actions.type.Number
+- name: name1
+  type:
+    name: name
+- name: name2
+  type:
+    name: name
+- name: name3
+  type:
+    name: name
+- name: name4
+  type:
+    name: name
+- name: name5
+  type:
+    name: name
+- name: name6
+  type:
+    name: name
+- name: name7
+  type:
+    name: name
+trainingPhrases:
+- ($name1 'beer' auto=true)
+- ($name1 'I' auto=true)'($name2 'd' auto=true) ($name3 'like' auto=true) ($name4 'to' auto=true) ($name5 'go' auto=true) ($name6 'for' auto=true) a ($name7 'beer' auto=true)
+- Pubs near me
+- Pubs in the area
+- Show me pubs
+- Show me pubs near me
+- Do you know where nearest pub is?
+- Where can I have a beer?
+- Where can I get a beer near me?
+- Show me pubs near me
+- What are the pubs in the area?
+- Show me pubs in the area
+- View Pubs in the area

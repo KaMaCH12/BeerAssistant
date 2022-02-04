@@ -1,0 +1,22 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL" && session.params.confirmation == "No"
+  transitionToScene: actions.scene.END_CONVERSATION
+- condition: scene.slots.status == "FINAL" && session.params.confirmation == "Yes"
+  handler:
+    webhookHandler: CreateEvent
+  transitionToScene: actions.scene.END_CONVERSATION
+slots:
+- commitBehavior:
+    writeSessionParam: answer
+  name: answer
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: Should I send the invite?
+  required: true
+  type:
+    name: confirmation

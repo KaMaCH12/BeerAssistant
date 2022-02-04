@@ -1,0 +1,63 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL" && session.params.inviteFriends == "Yes"
+  handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: Ok. I'll create an event at $session.params.timeDay $session.params.timeHour.
+  transitionToScene: SendInviteToFriends
+- condition: scene.slots.status == "FINAL" && session.params.inviteFriends == "No"
+  handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: Ok, got it. See you soon.
+    webhookHandler: CreateEvent
+  transitionToScene: actions.scene.END_CONVERSATION
+slots:
+- commitBehavior:
+    writeSessionParam: timeDay
+  name: timeDay
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: At which date would you like to setup this event?
+  required: true
+  type:
+    name: actions.type.Date
+- commitBehavior:
+    writeSessionParam: timeHour
+  name: timeHour
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: At what time?
+  required: true
+  type:
+    name: actions.type.DateTime
+- commitBehavior:
+    writeSessionParam: inviteFriends
+  name: inviteFriends
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: Would you like to invite some friends?
+  required: true
+  type:
+    name: confirmation

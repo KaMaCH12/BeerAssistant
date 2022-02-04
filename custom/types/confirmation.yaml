@@ -1,0 +1,16 @@
+synonym:
+  entities:
+    "No":
+      synonyms:
+      - "No"
+      - wrong
+      - "false"
+      - incorrect
+      - nope
+    "Yes":
+      synonyms:
+      - "Yes"
+      - "true"
+      - good
+      - great
+      - yup

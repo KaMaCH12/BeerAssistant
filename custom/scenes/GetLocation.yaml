@@ -1,0 +1,15 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL" && (session.params.deviceLoc.permissionStatus == "PERMISSION_GRANTED" || session.params.deviceLoc.permissionStatus == "ALREADY_GRANTED")
+  transitionToScene: ShowPubsInTheArea
+slots:
+- commitBehavior:
+    writeSessionParam: deviceLoc
+  config:
+    '@type': type.googleapis.com/google.actions.conversation.v3.PermissionValueSpec
+    context: I need your device location in order to process your request
+    permissions:
+    - DEVICE_PRECISE_LOCATION
+  name: deviceLoc
+  required: true
+  type:
+    name: actions.type.Permission
